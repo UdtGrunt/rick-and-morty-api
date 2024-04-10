@@ -14,6 +14,15 @@ class EpisodeRepositoryImpl(
     private val episodeLocal : EpisodeDAO,
     private val characterApi: CharacterApi
 ) : EpisodeRepository {
+    /**
+     * `getEpisodes` is a suspend function that fetches all episodes for a given character.
+     * It first checks the local database for the episodes. If not found, it fetches the data from the API,
+     * stores it in the local database, and then returns the episodes.
+     *
+     * @property characterId Unique identifier of the character.
+     * @return List of `Episode` objects corresponding to the character.
+     * @throws Exception if the character is not found.
+     */
     override suspend fun getEpisodes(characterId: Int): List<Episode> {
         // Get all episodes for the character
         val episodesLocal = episodeLocal.getEpisodesForCharacter(characterId)

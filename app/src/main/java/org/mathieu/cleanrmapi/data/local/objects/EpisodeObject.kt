@@ -6,6 +6,17 @@ import org.mathieu.cleanrmapi.data.local.RMDatabase
 import org.mathieu.cleanrmapi.data.remote.responses.EpisodeResponse
 import org.mathieu.cleanrmapi.domain.models.episode.Episode
 
+/**
+ * Represents an episode entity stored in the SQLite database. This object provides fields
+ * necessary to represent all the attributes of an episode from the data source.
+ * The object is specifically tailored for SQLite storage using Room Persistence Library.
+ *
+ * @property id Unique identifier of the episode.
+ * @property name Name of the episode.
+ * @property airDate Air date of the episode.
+ * @property episode Episode number.
+ * @property url URL pointing to the episode's page.
+ */
 @Entity(tableName = RMDatabase.EPISODE_TABLE)
 class EpisodeObject(
     @PrimaryKey
